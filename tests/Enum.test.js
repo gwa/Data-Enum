@@ -26,15 +26,13 @@ define(['Gwa.Data.Enum'], function( Enum ) {
 			expect(data.get()).toEqual('foo');
 		});
 
-		it("can have a ACTIVTATE and a DEACTIVATE listener set", function() {
+		it("can have a SETTINGS_CHANGE listener set", function() {
 			var data = new Enum(['foo', 'bar', 'baz']);
 			var myvar;
 			var oldvar;
-			data.on('ACTIVATE', function( val ) {
+			data.on('SETTINGS_CHANGE', function( val, oldval ) {
 				myvar = val;
-			});
-			data.on('DEACTIVATE', function( val ) {
-				oldvar = val;
+				oldvar = oldval;
 			});
 			data.set('foo');
 			expect(data.get()).toEqual('foo');

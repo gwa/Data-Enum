@@ -17,15 +17,12 @@ enum.set('foo');
 var active = enum.get(); // 'foo'
 ~~~~~~~~
 
-Dispatches an `ACTIVATE` event when a setting is selected, and a `DEACTIVATE` event when a setting is deselected (ie. a new setting is set).
+Dispatches an `SETTINGS_CHANGE` event when a setting is selected.
 
 ~~~~~~~~.js
 var enum = new Enum(['foo', 'bar', 'baz']);
-enum.on('ACTIVATE', function( val ) {
+enum.on('SETTINGS_CHANGE', function( val, oldval ) {
 	// handle active value set
-});
-enum.on('DEACTIVATE', function( oldval ) {
-	// handle old active value
 });
 enum.set('foo');
 ~~~~~~~~
