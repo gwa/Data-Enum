@@ -1,6 +1,6 @@
 {
   "name": "gwa-data-enum",
-  "main": "dist/Observable.js",
+  "main": "dist/Enum.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/gwa/Data-Enum.git"

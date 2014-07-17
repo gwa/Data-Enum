@@ -33,7 +33,7 @@ define(['Gwa.Event.Dispatcher'], function( Dispatcher ) {
 			 * @param {String} key
 			 */
 			set: function( key ) {
-				var a, inarr = false;
+				var a, inarr = false, oldvalue = null;
 				if (_active === key) {
 					return;
 				}
@@ -47,10 +47,10 @@ define(['Gwa.Event.Dispatcher'], function( Dispatcher ) {
 					return;
 				}
 				if (_active) {
-					_dispatcher.dispatch('DEACTIVATE', _active, _instance);
+					oldvalue = _active;
 				}
 				_active = key;
-				_dispatcher.dispatch('ACTIVATE', _active, _instance);
+				_dispatcher.dispatch('SETTINGS_CHANGE', _active, oldvalue, _instance);
 			},
 
 			/**
