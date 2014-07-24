@@ -1,5 +1,14 @@
 /* global define */
-define(['Gwa.Event.Dispatcher'], function( Dispatcher ) {
+(function( root, factory ) {
+	if (typeof define === 'function' && define.amd) {
+		// AMD. Register as an anonymous module.
+		define(['Gwa.Event.Dispatcher'], factory);
+	} else {
+		// Browser globals
+		root.gwa = typeof root.gwa === 'undefined' ? {} : root.gwa;
+		root.gwa.DataEnum = factory(root.gwa.EventDispatcher);
+	}
+}(this, function( Dispatcher ) {
 
 	return function( settings ) {
 
@@ -67,4 +76,4 @@ define(['Gwa.Event.Dispatcher'], function( Dispatcher ) {
 
 	};
 
-});
+}));
